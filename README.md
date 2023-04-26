@@ -1,5 +1,7 @@
 # TF2Classic-SchemaDownloader
-Precache and add map-specific item schema, sound and particle scripts inside the maps folder to the Downloads Table for TF2Classic 2.0.4
+Precache and add map-specific item schema, sound and particle scripts inside the maps folder to the Downloads Table for TF2Classic. 
+
+Now supports global schemas for TF2Classic 2.1.0
 
 ## ConVars
 ### sm_schemadownloader_mode
