@@ -7,7 +7,7 @@ public Plugin myinfo =
 {
 	name = "TF2Classic Schema Downloader",
 	author = "azzy",
-	version = "1.2"
+	version = "1.3"
 }
 
 Handle UseValveFs;
@@ -30,18 +30,33 @@ public void OnMapStart()
 	{
 		Load(ItemSchemaPath);
 		PrintToServer("[TF2Classic Schema Downloader] Item Schema for map %s added to Downloads Table", MapName);
+	}
+	else if(FileExists("maps/custom_items_game.txt", GetConVarBool(UseValveFs), NULL_STRING))
+	{
+		Load("maps/custom_items_game.txt");
+		PrintToServer("[TF2Classic Schema Downloader] Global Item Schema added to Downloads Table", MapName);
 	} 
 
 	if(FileExists(SoundScriptPath, GetConVarBool(UseValveFs), NULL_STRING))
 	{
 		Load(SoundScriptPath);
 		PrintToServer("[TF2Classic Schema Downloader] Sound Script for map %s added to Downloads Table", MapName);
-	} 
+	}
+	else if(FileExists("maps/custom_level_sounds.txt", GetConVarBool(UseValveFs), NULL_STRING))
+	{
+		Load("maps/custom_level_sounds.txt");
+		PrintToServer("[TF2Classic Schema Downloader] Global Sound Script added to Downloads Table", MapName);
+	}
 
 	if(FileExists(ParticleScriptPath, GetConVarBool(UseValveFs), NULL_STRING))
 	{
 		Load(ParticleScriptPath);
 		PrintToServer("[TF2Classic Schema Downloader] Particle Script for map %s added to Downloads Table", MapName);
+	}
+	else if(FileExists("maps/custom_particles.txt", GetConVarBool(UseValveFs), NULL_STRING))
+	{
+		Load("maps/custom_particles.txt");
+		PrintToServer("[TF2Classic Schema Downloader] Global Particle Script added to Downloads Table", MapName);
 	}
 }
 
